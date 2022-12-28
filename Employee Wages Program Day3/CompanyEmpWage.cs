@@ -26,7 +26,7 @@ namespace Employee_Wages_Program_Day3
 
         public override string ToString()
         {
-            return $"company:{company} RatePerHr:{empRatePerHrs} Days:{maxWorkingDays} Hrs:{maxWorkingHrs}";
+            return $"company:{company} RatePerHr:{empRatePerHrs} Days:{maxWorkingDays} Hrs:{maxWorkingHrs} totalWage:{totalEmpWage}";
         }
     }
 }
