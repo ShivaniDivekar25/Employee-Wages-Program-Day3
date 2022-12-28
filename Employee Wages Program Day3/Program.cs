@@ -6,28 +6,30 @@ namespace Employee_Wages_Program_Day3
     {
         public const int IS_PARTTIME = 1;
         public const int IS_FULLTIME = 2;
-        CompanyEmpWage[] companies;
-        int numbOfCompanies = 0;
-
+        //CompanyEmpWage[] companies;       //Using array
+        //int numbOfCompanies = 0;
+        List<CompanyEmpWage> list;          //Using collection
         public CompanyWageBuilder()
         {
-            companies = new CompanyEmpWage[5];
+            //companies = new CompanyEmpWage[5];
+            list = new List<CompanyEmpWage>();
         }
 
         public void AddComapnyDetailsIntoArray(string company, int empRatePerHrs, int maxWorkingDays, int maxWorkingHrs)
         {
             CompanyEmpWage comp = new CompanyEmpWage(company, empRatePerHrs, maxWorkingDays, maxWorkingHrs);
-            companies[numbOfCompanies] = comp;
-            numbOfCompanies++;
+            //companies[numbOfCompanies] = comp;
+            //numbOfCompanies++;
+            list.Add(comp);
         }
 
         public void IterateOverCompany()
         {
-            for(int i=0; i< numbOfCompanies; i++)
+            for(int i=0; i< list.Count; i++)
             {
-                int totalEmpWage = CalculateWages(companies[i]);
-                companies[i].SetTotalWage(totalEmpWage);
-                Console.WriteLine(companies[i].ToString());
+                int totalEmpWage = CalculateWages(list[i]);
+                list[i].SetTotalWage(totalEmpWage);
+                Console.WriteLine(list[i].ToString());
             }
         }
         static void Main(string[] args)     //Calling methods in main method
@@ -38,12 +40,6 @@ namespace Employee_Wages_Program_Day3
             builder.AddComapnyDetailsIntoArray("Deloitte", 40, 35, 80);
             builder.AddComapnyDetailsIntoArray("Microsoft", 35, 45, 70);
             builder.IterateOverCompany();
-           /*CompanyWage BridgeLabz = new CompanyWage("Bridgelabz", 30, 25, 70);
-            BridgeLabz.CalculateWages();
-            CompanyWage Delloite = new CompanyWage("Deloitte", 40, 35, 80);
-            Delloite.CalculateWages();
-            CompanyWage Microsoft = new CompanyWage("Microsoft", 35, 45, 70);
-            Microsoft.CalculateWages();*/
         }
 
         public int CalculateWages(CompanyEmpWage companyDetails)         //Creating method for wages
