@@ -3,7 +3,7 @@ using System.Text;
 
 namespace Employee_Wages_Program_Day3
 {
-    class CompanyWageBuilder     //Created class
+    class CompanyWageBuilder:IComapanyWageBuilder     //Created class
     {
         public const int IS_PARTTIME = 1;
         public const int IS_FULLTIME = 2;
